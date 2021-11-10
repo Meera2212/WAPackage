@@ -1,0 +1,77 @@
+<html>
+<head>
+  <title>Signup</title>
+   <link rel="stylesheet" type="text/css" href="sign.css">
+  </head>
+<body>
+  <div class="signin">
+     <img  src="log.png" class="log">
+     <h1>Sign Up</h1>
+    <form name="myform" action="about.html" onsubmit="return validate()" method="post" >
+       <p>Username</p>
+       <input type="text" name="name" placeholder="Enter Username">
+       <p id="demo">Password </p>
+       <input type="Password" name="password" placeholder="Enter password">
+       <p id="dem">Confirm Password</p>
+       <input type="Password" name="cnfm" placeholder="Reenter password">
+       <p id="de">Mobile No</p>
+	   <input type="text" name="no" placeholder="Enter Mobile No">
+	   <p id="gender"></p>
+	   <label for="gender">Gender</label>
+	   <input type="radio"  id="male" name="gender" value="male"> Male
+       <input type="radio" id="female" name="gender" value="female"> Female
+      <input type="submit" name="submit" value='Register'>
+	   </form>
+  </div>
+	  <script>
+	  document.getElementById("demo").innerHTML="Password";
+	  document.getElementById("dem").innerHTML=" Confirm Password";
+	  document.getElementById("de").innerHTML="Mobile no";
+	  function validate()
+	  {
+	  var x=document.forms["myform"]["name"].value;
+	  var y=document.forms["myform"]["password"].value;
+	  var z=document.forms["myform"]["cnfm"].value;
+	  var k=document.forms["myform"]["no"].value;
+	  var gender=document.getElementsByName('gender');
+	  var ischecked=false;
+	  for ( var i = 0; i < gender.length; i++) {
+    if(gender[i].checked) {
+        ischecked= true;
+        break;
+    }
+	}
+	
+	  if(x=="")
+	  {
+	  alert("Name cannot be empty");
+	  return false;
+	  }
+	  if(y.length<6)
+	  {
+	  alert("Your password is too short");
+	  return false;
+	  }
+	  if(y!=z)
+	  {
+	  alert("password does not match");
+	  return false;
+	  }
+	  if(isNaN(k) || k.length<10)
+	  {
+	  alert("Enter valid mobile number");
+	  return false;
+	  }
+	  
+	  if(!ischecked)
+	  {
+	  alert("select the gender");
+	  return false;
+	  }
+	  
+	  }
+	  </script>
+   
+</body>
+
+</html>
